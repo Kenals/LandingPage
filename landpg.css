@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;   
+    background-attachment: fixed; 
+}
+
+
+.body-container {
+    max-width: 1400px;
+    min-height: 600px;
+    background-color: white;
+    margin: 0px auto;
+    padding: 200px;
+}
+
+.wavy-fuse .first-image {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.wavy-fuse h1 {
+    font-size: 50px;
+
+}
+
+.first-image {
+    
+}
+
+.button .btn{
+    padding: 10px 20px;
+    border: none;
+    background-color:rgb(255, 192, 192);
+    border-radius: 20px;
+    font-size: 10px;
+    margin: 15px 0 20px;
+    color: white;
+}
+
+.call-outs-container {
+max-width: 1400px;
+margin: 40px auto 0 auto;
+display: ;
+justify-content: space-between;
+}
+
+.call-outs-container h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.call-out {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    flex-basis: 30%;
+}
+
+.third-part .button .btn {
+    padding: 10px 20px;
+    border: none;
+    background-color:rgb(255, 192, 192);
+    border-radius: 20px;
+    font-size: 10px;
+    margin: 15px 0 20px;
+    color: white;
+}
+
+.third-part .second-image {
+    display: flex;
+    justify-content: absolute;
+}
+
+.button .bttn{
+    padding: 10px 20px;
+    border-color: pink;
+    background-color:#fff;
+    border-radius: 20px;
+    font-size: 10px;
+    margin: 15px 0 20px;
+    color: pink;
+}

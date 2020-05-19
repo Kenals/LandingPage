@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz Game></title> 
+<link rel= "stylesheet" href= "style.css">
+</head>
+<body>
+<div class="quiz-container">
+    <div class="question-number">
+    <h3>Question <span class="question-num-value"></span> of <span class="total-question"></span></h3>
+    </div>
+    <div class ="question">
+    </div>
+    <div class ="options">
+        <div id="0" class="option1" onclick="check(this)"></div>
+        <div id="1" class="option2" onclick="check(this)"></div>
+        <div id="2" class="option3" onclick="check(this)"></div>
+        <div id="3" class="option4" onclick="check(this)"></div>
+    </div>
+    <div class = "button">
+    <button type="button" class="btn" onclick="next()">Next</button>
+    </div>
+    <div class ="answers-tracker">
+
+        <div class="container">
+            <div class="box-end">
+            <h3>Designed by Kenny © 2020<class style="font-size: smaller"></style></h3>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                    </ul>
+             </div>
+
+             <h1>App, Business&SaaS <br>
+                Landing Page Template <br>
+            </h1>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repeliendus quasi fuga nesciunt <br>
+                dolorum nulia magnam venlam sapiente, fugiat! fuga nesciunt dolorum nulia magnam veniam <br>
+                sapiente, fugiat!
+                <br>
+                <br>
+        
+            <div class = "button">
+                <button type="button" class="btn">DOWNLOAD NOW</button>
+                <button type="button" class="bttn">LEARN MORE</button>
+                </div>
+                <br>
+                <br>
+
+
+
+        body {
+            margin: 0;
+            background-color: goldenrod;
+            font-family: Georgia, 'Times New Roman', Times, serif;    
+        }
+        *{
+            box-sizing: border-box;
+        }
+        
+        .quiz-container{
+            max-width: 800px;
+            min-height: 600px;
+            background-color: black;
+            margin: 40px auto;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .quiz-container::after,.quiz-container::before{
+            content: '';
+            clear: both;
+            display: table;
+        }
+        
+        .answers-tracker{
+            float: left;
+            width: 100%;
+        }
+        
+        .question-number h3{
+            color:goldenrod;
+            border-bottom: 1px solid goldenrod;
+            margin:0;
+            padding-bottom:10px;
+        }
+        
+        .question {
+            font-size: 25px;
+            color: goldenrod;
+            padding: 20px 0;
+        }
+         
+        .options div{
+            background-color:black;
+            font-size: 16px;
+            color: goldenrod;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding:15px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .options div.disabled{
+            pointer-events: none;
+        }
+        
+        .options div.correct{
+            z-index: 1;
+            color: #fff;
+        }
+        
+        .options div.correct::before{
+            content:'';
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            background-color:green;
+            z-index: -1;
+            transform: translateY(1.5rem);
+            animation: animateBackground 1s ease;
+            animation-fill-mode: forwards;
+        }
+        
+        
+        .options div.wrong{
+            z-index: 1;
+            color: #fff;
+        }
+        
+        .options div.wrong::before{
+            content:'';
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            z-index: -1;
+            transform:translateY(-1.2rem);
+            animation: animateBackground 1s ease;
+            animation-fill-mode: forwards;
+        }
+        
+        .button .btn{
+            padding: 15px 50px;
+            border-radius: 5px;
+            background-color: goldenrod;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            border: none;
+            display: inline-block;
+            margin: 15px 0 20px;
+            cursor: pointer;
+        }
+        
+        .answers-tracker{
+            border-top: 1px solid goldenrod;
+            padding-top: 15px;
+        }
+        
+        .answers-tracker div{
+            height: 40px;
+            width: 40px;
+            background-color: #cccccc;
+            display: inline-block;
+            border-radius: 50%;
+            margin: 5px 5px 0;
+        }
+        
+        .answers-tracker div.correct{
+            background-color: green;
+            background-image: url("img/Check.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+        }
+         
+        .answers-tracker div.wrong{
+            background-color: red;
+            background-image: url("img/wrong.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+        }
+        
+          .quiz-over{
+              position: fixed;
+              left:0;
+              top:0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0,0,0,0.9);
+              z-index: 10;
+              display: none;
+              align-items:center;
+              justify-content: center;
+        }
+        
+        .quiz-over.show{
+            display: flex;
+        }
+        
+        .quiz-over .box{
+            background-color: goldenrod;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            flex-basis: 700px;
+            max-width: 700px;
+            color: black;
+        }
+        
+        .quiz-over .box h1{
+            font-size: 30px;
+            margin: 0 0 20px;
+        }
+        
+        .quiz-over .box button{
+            padding: 15px 50px;
+            border: none;
+            background-color: black;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0 20px;
+            color: goldenrod;
+        }
+
+
+
+
+        body {margin: 0;}
+main {
+   padding: 10px 25px 10px 25px;
+}
+p {
+    margin-top: 20px;
+}
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-item {
+    margin-left: 20px;
+}
+.nav-item.nav-icon {
+    height: 20px;
+    width: 20px;
+    margin-top: 12px;
+}
+.round-circle {
+    margin-top: 2px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.banner {
+    height: 120px;
+    max-width: 200px;
+    margin: 150px auto 150px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.center-me {
+    margin: auto
+    display: flex;
+}
+
+
+<main>
+<div class="navbar">
+    <p class="nav-item">Gmail</p>
+    <p class="nav-item">Images</p>
+    <img class="nav-item nav-icon" src="images/menu_icon.png" alt="menu icon" />
+    <img class="nav-item round-circle" src="images/profile.jpg" />
+</div>
+<div class="banner">
+    <img class="google image" src="images/google_image.png" alt="google image" />
+    <div class="center-me"></div>
+    </div>
+
+    <a>
+        <button>
+            Google Search
+        </button>
+    </a>
+</main>
